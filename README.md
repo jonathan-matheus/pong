@@ -37,5 +37,5 @@ partir do arquivo index.html
 - [Dev Icons](https://devicon.dev/)
 - [Como escrever um README incrível no seu Github](https://www.alura.com.br/artigos/escrever-bom-readme)
 
-# :page_with_curl: Licença
+# Licença
 Projeto publicado em 2023 sobre licença MIT
