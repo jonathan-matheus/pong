@@ -38,4 +38,4 @@ partir do arquivo index.html
 - [Como escrever um README incrível no seu Github](https://www.alura.com.br/artigos/escrever-bom-readme)
 
 # Licença
-Projeto publicado em 2023 sobre licença MIT
+Projeto publicado em 2023 sobre licença [MIT](https://github.com/jonathan-matheus/pong/blob/main/LICENSE)
