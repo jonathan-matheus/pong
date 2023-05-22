@@ -31,4 +31,13 @@ function draw() {
    */
   xBolinha += velocidadeXBolinha;
   yBolinha += velocidadeYBolinha;
+
+  //Inverte a velocidade da bolinha sempre que ela toca as bordas do canva
+  if(xBolinha > width || xBolinha < 0){
+    velocidadeXBolinha *= -1;
+  }
+
+  if(yBolinha > height || yBolinha < 0){
+    velocidadeYBolinha *= -1;
+  }
 }
