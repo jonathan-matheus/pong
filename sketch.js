@@ -14,6 +14,12 @@ let raio = diametro / 2;
 let velocidadeXBolinha = 6;
 let velocidadeYBolinha = 6;
 
+// variáveis da raquete
+let xRaquete = 5;
+let yRaquete = 150;
+let raqueteComprimento = 10; //largura
+let raqueteAltura = 90;
+
 function setup() {
   // area do game, palco
   createCanvas(600, 400);
@@ -25,6 +31,7 @@ function draw() {
   mostraBolinha();
   movimentaBolinha(); 
   verificaColisaoBorda();
+  mostraRaquete();
 }
 
 /**
@@ -58,4 +65,12 @@ function verificaColisaoBorda(){
   if(yBolinha + raio > height || yBolinha < 0){
     velocidadeYBolinha *= -1;
   }
+}
+
+/**
+ * Lança a raquete na tela
+ * @date 06/06/2023 - 14:37:57
+ */
+function mostraRaquete(){
+  rect(xRaquete, yRaquete, raqueteComprimento, raqueteAltura);
 }
