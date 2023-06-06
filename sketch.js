@@ -32,6 +32,7 @@ function draw() {
   movimentaBolinha(); 
   verificaColisaoBorda();
   mostraRaquete();
+  movimentaMinhaRaquete();
 }
 
 /**
@@ -73,4 +74,20 @@ function verificaColisaoBorda(){
  */
 function mostraRaquete(){
   rect(xRaquete, yRaquete, raqueteComprimento, raqueteAltura);
+}
+
+/**
+ * Move a raquete do jogador para cima ou para baixo com base na entrada do 
+ * teclado.
+ *
+ * @return {undefined} Esta função não retorna nada.
+ */
+function movimentaMinhaRaquete(){
+  if(keyIsDown(UP_ARROW)){
+    yRaquete -= 10;
+  }
+
+  if(keyIsDown(DOWN_ARROW)){
+    yRaquete += 10;
+  }
 }
