@@ -33,6 +33,7 @@ function draw() {
   verificaColisaoBorda();
   mostraRaquete();
   movimentaMinhaRaquete();
+  verificaColisaoRaquete();
 }
 
 /**
@@ -59,11 +60,11 @@ function movimentaBolinha(){
  * @date 06/06/2023 - 13:42:29
  */
 function verificaColisaoBorda(){
- if(xBolinha + raio > width || xBolinha < 0){
+ if(xBolinha + raio > width || xBolinha - raio < 0){
     velocidadeXBolinha *= -1;
   }
 
-  if(yBolinha + raio > height || yBolinha < 0){
+  if(yBolinha + raio > height || yBolinha - raio < 0){
     velocidadeYBolinha *= -1;
   }
 }
@@ -80,7 +81,7 @@ function mostraRaquete(){
  * Move a raquete do jogador para cima ou para baixo com base na entrada do 
  * teclado.
  *
- * @return {undefined} Esta função não retorna nada.
+ * @return {void} Esta função não retorna nada.
  */
 function movimentaMinhaRaquete(){
   if(keyIsDown(UP_ARROW)){
@@ -89,5 +90,17 @@ function movimentaMinhaRaquete(){
 
   if(keyIsDown(DOWN_ARROW)){
     yRaquete += 10;
+  }
+}
+
+/**
+ * Verifica se a bola colide com a raquete e altera a velocidade horizontal da 
+ * bola, se for o caso.
+ *
+ * @return {void} Esta função não retorna nada.
+ */
+function verificaColisaoRaquete(){
+  if(xBolinha - raio < xRaquete + raqueteComprimento && yBolinha - raio < yRaquete + raqueteAltura && yBolinha + raio > yRaquete){
+    velocidadeXBolinha *= -1;
   }
 }
