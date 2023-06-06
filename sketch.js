@@ -8,6 +8,7 @@
 let xBolinha = 300;
 let yBolinha = 200;
 let diametro = 22;
+let raio = diametro / 2;
 
 // valores de velocidade nos eixos x, e y da bolinha (circulo)
 let velocidadeXBolinha = 6;
@@ -50,11 +51,11 @@ function movimentaBolinha(){
  * @date 06/06/2023 - 13:42:29
  */
 function verificaColisaoBorda(){
- if(xBolinha > width || xBolinha < 0){
+ if(xBolinha + raio > width || xBolinha < 0){
     velocidadeXBolinha *= -1;
   }
 
-  if(yBolinha > height || yBolinha < 0){
+  if(yBolinha + raio > height || yBolinha < 0){
     velocidadeYBolinha *= -1;
   }
 }
