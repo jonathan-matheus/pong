@@ -28,6 +28,10 @@ let velocidadeYOponente;
 // variável armazena se a ou não uma colisão acontecendo
 let colidiu = false; 
 
+// placar do jogo
+let meusPontos = 0;
+let pontosDoOponente = 0;
+
 function setup() {
   // area do game, palco
   createCanvas(600, 400);
@@ -42,8 +46,11 @@ function draw() {
   mostraRaquete(xRaquete, yRaquete);
   mostraRaquete(xRaqueteOponente, yRaqueteOponente);
   movimentaMinhaRaquete();
-  colisaoMinhaRaqueteBiblioteca();
+  verificaColisaoRaquete(xRaquete, yRaquete);
+  verificaColisaoRaquete(xRaqueteOponente, yRaqueteOponente);
   movimentaRaqueteOponente();
+  incluiPlacar();
+  marcaPonto();
 }
 
 /**
@@ -110,17 +117,52 @@ function movimentaMinhaRaquete(){
   * Verifica a colisão entre a raquete do jogador e a bola usando a função 
   * `collideRectCircle` da biblioteca p5.collide2d.js. Se uma colisão for 
   * detectada, a velocidade horizontal da bola é invertida.
-  *
+  * 
+  * @param {number} x - A coordenada x da raquete
+  * @param {number} y - A coordenada y da raquete
   * @return {void} Esta função não retorna nada.
   */
-function colisaoMinhaRaqueteBiblioteca(){
-  colidiu = collideRectCircle(xRaquete, yRaquete, raqueteComprimento, raqueteAltura, xBolinha, yBolinha, raio);
+function verificaColisaoRaquete(x, y){
+  colidiu = collideRectCircle(x, y, raqueteComprimento, raqueteAltura, xBolinha, yBolinha, raio);
   if(colidiu){
     velocidadeXBolinha *= -1;
   }
 }
 
+/**
+ * Move a raquete do oponente para cima ou para baixo para tentar acertar a bola.
+ *
+ * @return {void} Esta função não retorna nada.
+ */
 function movimentaRaqueteOponente(){
   velocidadeYOponente = yBolinha - yRaqueteOponente - raqueteComprimento / 2 - 30;
   yRaqueteOponente += velocidadeYOponente;
+}
+
+/**
+ * Exibe o placar
+ * 
+ * @returns {void} Esta função não retorna nada
+ */
+function incluiPlacar(){
+  textAlign(CENTER);
+  textSize(16);
+  fill(255);
+  text(meusPontos, 278, 26);
+  text(pontosDoOponente, 321, 26);
+}
+
+/**
+ * Atualiza a pontuação do jogo com base na posição da bola.
+ *
+ * @return {void} Esta função não retorna nada.
+ */
+function marcaPonto(){
+  if(xBolinha > 590){
+    meusPontos += 1;
+  }
+
+  if(xBolinha < 10){
+    pontosDoOponente += 1;
+  }
 }
