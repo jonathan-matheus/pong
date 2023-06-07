@@ -20,6 +20,8 @@ let yRaquete = 150;
 let raqueteComprimento = 10; //largura
 let raqueteAltura = 90;
 
+let colidiu = false; 
+
 function setup() {
   // area do game, palco
   createCanvas(600, 400);
@@ -33,7 +35,7 @@ function draw() {
   verificaColisaoBorda();
   mostraRaquete();
   movimentaMinhaRaquete();
-  verificaColisaoRaquete();
+  colisaoMinhaRaqueteBiblioteca();
 }
 
 /**
@@ -94,13 +96,15 @@ function movimentaMinhaRaquete(){
 }
 
 /**
- * Verifica se a bola colide com a raquete e altera a velocidade horizontal da 
- * bola, se for o caso.
- *
- * @return {void} Esta função não retorna nada.
- */
-function verificaColisaoRaquete(){
-  if(xBolinha - raio < xRaquete + raqueteComprimento && yBolinha - raio < yRaquete + raqueteAltura && yBolinha + raio > yRaquete){
+  * Verifica a colisão entre a raquete do jogador e a bola usando a função 
+  * `collideRectCircle` da biblioteca p5.collide2d.js. Se uma colisão for 
+  * detectada, a velocidade horizontal da bola é invertida.
+  *
+  * @return {void} Esta função não retorna nada.
+  */
+function colisaoMinhaRaqueteBiblioteca(){
+  colidiu = collideRectCircle(xRaquete, yRaquete, raqueteComprimento, raqueteAltura, xBolinha, yBolinha, raio);
+  if(colidiu){
     velocidadeXBolinha *= -1;
   }
 }
