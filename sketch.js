@@ -20,6 +20,12 @@ let yRaquete = 150;
 let raqueteComprimento = 10; //largura
 let raqueteAltura = 90;
 
+// variáveis do oponente
+let xRaqueteOponente = 585;
+let yRaqueteOponente = 150;
+let velocidadeYOponente;
+
+// variável armazena se a ou não uma colisão acontecendo
 let colidiu = false; 
 
 function setup() {
@@ -33,9 +39,11 @@ function draw() {
   mostraBolinha();
   movimentaBolinha(); 
   verificaColisaoBorda();
-  mostraRaquete();
+  mostraRaquete(xRaquete, yRaquete);
+  mostraRaquete(xRaqueteOponente, yRaqueteOponente);
   movimentaMinhaRaquete();
   colisaoMinhaRaqueteBiblioteca();
+  movimentaRaqueteOponente();
 }
 
 /**
@@ -72,11 +80,14 @@ function verificaColisaoBorda(){
 }
 
 /**
- * Lança a raquete na tela
- * @date 06/06/2023 - 14:37:57
+ * Desenha um retângulo para exibir uma raquete em uma posição dada.
+ *
+ * @param {number} x - A coordenada x do canto superior esquerdo do retângulo.
+ * @param {number} y - A coordenada y do canto superior esquerdo do retângulo.
+ * @return {void} Esta função não retorna nenhum valor.
  */
-function mostraRaquete(){
-  rect(xRaquete, yRaquete, raqueteComprimento, raqueteAltura);
+function mostraRaquete(x, y){
+  rect(x, y, raqueteComprimento, raqueteAltura);
 }
 
 /**
@@ -107,4 +118,9 @@ function colisaoMinhaRaqueteBiblioteca(){
   if(colidiu){
     velocidadeXBolinha *= -1;
   }
+}
+
+function movimentaRaqueteOponente(){
+  velocidadeYOponente = yBolinha - yRaqueteOponente - raqueteComprimento / 2 - 30;
+  yRaqueteOponente += velocidadeYOponente;
 }
