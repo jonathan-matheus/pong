@@ -7,7 +7,7 @@
 // variáveis da bolinha
 let xBolinha = 300;
 let yBolinha = 200;
-let diametro = 22;
+let diametro = 13;
 let raio = diametro / 2;
 
 // valores de velocidade nos eixos x, e y da bolinha (circulo)
@@ -31,6 +31,11 @@ let colidiu = false;
 // placar do jogo
 let meusPontos = 0;
 let pontosDoOponente = 0;
+
+// sons do jogo
+let raquetada;
+let ponto;
+let trilha;
 
 function setup() {
   // area do game, palco
