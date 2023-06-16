@@ -116,11 +116,11 @@ function mostraRaquete(x, y){
  * @return {void} Esta função não retorna nada.
  */
 function movimentaMinhaRaquete(){
-  if(keyIsDown(UP_ARROW)){
+  if(keyIsDown(87)){
     yRaquete -= 10;
   }
 
-  if(keyIsDown(DOWN_ARROW)){
+  if(keyIsDown(83)){
     yRaquete += 10;
   }
 }
@@ -148,8 +148,13 @@ function verificaColisaoRaquete(x, y){
  * @return {void} Esta função não retorna nada.
  */
 function movimentaRaqueteOponente(){
-  velocidadeYOponente = yBolinha - yRaqueteOponente - raqueteComprimento / 2 - 30;
-  yRaqueteOponente += velocidadeYOponente;
+  if(keyIsDown(UP_ARROW)){
+    yRaqueteOponente -= 10;
+  }
+
+  if(keyIsDown(DOWN_ARROW)){
+    yRaqueteOponente += 10;
+  }
 }
 
 /**
