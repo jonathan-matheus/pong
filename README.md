@@ -1,10 +1,4 @@
-[//]: # "Criar uma banner para o projeto"
-[//]: # "Assim que tiver uma print da tela"
-# Pong
-![Badge em Desenvolvimento](https://img.shields.io/badge/STATUS-EM%20DESENVOLVIMENTO-brightgreen)
-
-Uma versão do clássico jogo Pong, desenvolvido em p5.js durante o curso 
-"Lógica de programação: comece em lógica com o jogo Pong e JavaScript" da Alura.
+![](imagens/banner_pong.jpg)
 
 # Índice
 * [Funcionalidades](#funcionalidades)
@@ -16,9 +10,8 @@ Uma versão do clássico jogo Pong, desenvolvido em p5.js durante o curso
 * [Licença](#licença)
 
 # Funcionalidades
-- **Pontuação:** O jogo mostra quantos pontos cada jogador fez (em 
-desenvolvimento)
-- **Som:** O jogo possui efeitos sonoros (em desenvolvimento)
+- **Pontuação:** O jogo mostra quantos pontos cada jogador fez
+- **Som:** O jogo possui efeitos sonoros
 
 # Abrir e rodar o projeto
 Apenas faça o download do código fonte, e depois execute em seu navegador, a 
